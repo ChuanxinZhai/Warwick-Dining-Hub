@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities - University of Warwick Dining Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="static/images/Logo.jpg" alt="Logo" width="35" height="35"
+                    class="d-inline-block align-text-top"> University of Warwick Dining Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'dashboard' else '' }}" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'products' else '' }}"
+                            href="/products">Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ 'active' if active_page == 'facilities' else '' }}"
+                            href="/facilities" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/facilities?facility=The Beautiful Duck Restaurant">The
+                                    Beautiful Duck Restaurant</a></li>
+                            <li><a class="dropdown-item" href="/facilities?facility=Terrace Bar">Terrace Bar</a></li>
+                            <li><a class="dropdown-item" href="/facilities?facility=StarBucks Cafe">StarBucks Cafe</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'feedback' else '' }}"
+                            href="/feedback">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'booking' else '' }}"
+                            href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <form class="d-flex" role="search" action="/search" method="get">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                name="q">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a class="profile-icon" href="/profile" title="Profile">
+                        <img src="static/images/profile.jpg" alt="Profile" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- introduce facilities -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Our Facilities</h2>
+        {% for facility_name, products in facilities_info.items() %}
+        <h3>{{ facility_name }}</h3>
+        <p><strong>Open hours:</strong> {{ facilities_details[facility_name]['open_hours'] }}</p>
+        <p><strong>Address:</strong> {{ facilities_details[facility_name]['address'] }}</p>
+        <!-- add map -->
+        <div class="text-center"> <!-- make it center -->
+            <img src="{{ url_for('static', filename='images/' + facilities_details[facility_name]['map_image']) }}"
+                alt="Map of {{ facility_name }}" class="img-fluid mb-3 facility-map">
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            {% for product in products %}
+            <!-- demonstrate product -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/' + product['image']) }}" class="card-img-top"
+                        alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product['name'] }}</h5>
+                        <p class="card-text">{{ product['category'] }} - Price: £{{ product['price'] }} - Size: {{
+                            product['size'] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo column -->
+                <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+                    <img src="static/images/Logo.jpg" alt="Logo" width="150" height="90">
+                </div>
+                <!-- text column -->
+                <div class="col-md-8 text-center text-md-right">
+                    <p>Contact us: Dining.Hub@warwick.ac.uk</p>
+                    <p>Phone: +44 01234567890</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center mt-3">
+            © This website is developed by Chesson Zhai. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

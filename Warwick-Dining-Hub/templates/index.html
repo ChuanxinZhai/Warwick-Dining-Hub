@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Warwick Dining Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="static/images/Logo.jpg" alt="Logo" width="35" height="35"
+                    class="d-inline-block align-text-top"> University of Warwick Dining Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'dashboard' else '' }}" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'products' else '' }}"
+                            href="/products">Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ 'active' if active_page == 'facilities' else '' }}"
+                            href="/facilities" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/facilities?facility=The Beautiful Duck Restaurant">The
+                                    Beautiful Duck Restaurant</a></li>
+                            <li><a class="dropdown-item" href="/facilities?facility=Terrace Bar">Terrace Bar</a></li>
+                            <li><a class="dropdown-item" href="/facilities?facility=StarBucks Cafe">StarBucks Cafe</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'feedback' else '' }}"
+                            href="/feedback">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if active_page == 'booking' else '' }}"
+                            href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <form class="d-flex" role="search" action="/search" method="get">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                name="q">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a class="profile-icon" href="/profile" title="Profile">
+                        <img src="static/images/profile.jpg" alt="Profile" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Dashboard Carousel -->
+
+    <div id="carousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <!-- First picture -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="static/images/Restaurant_food.png" class="d-block w-100 carousel-img-opacity"
+                    alt="Restaurant">
+                <div class="carousel-caption d-none d-md-block carousel-text-color">
+                    <h4>The Beautiful Duck</h4>
+                    <p>Would you like to eat some delicious food in our restaurant?</p>
+                </div>
+            </div>
+            <!-- second picture -->
+            <div class="carousel-item">
+                <img src="static/images/Cafe_coffee.png" class="d-block w-100 carousel-img-opacity" alt="Cafe">
+                <div class="carousel-caption d-none d-md-block carousel-text-color">
+                    <h4>StarBucks Cafe</h4>
+                    <p>Enjoy a cup of coffe and have a nice day!</p>
+                </div>
+            </div>
+            <!-- third picture -->
+            <div class="carousel-item">
+                <img src="static/images/Bar_cocktail.png" class="d-block w-100 carousel-img-opacity" alt="Bar">
+                <div class="carousel-caption d-none d-md-block carousel-text-color">
+                    <h4>Terrace Bar</h4>
+                    <p>It's time for drinking! Come to join us!</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- Use cards to briefly introduce facilities -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Dining Facility 1: The Beautiful Duck Restaurant-->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static\images\The_beautiful_duck.webp" class="card-img-top" alt="The Beautiful Duck">
+                    <div class="card-body">
+                        <h5 class="card-title">The Beautiful Duck</h5>
+                        <p class="card-text">The beautiful duck restaurant is the best in Coventry. We serve cheap but
+                            delicious food.</p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Open hours:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mon-Sat: 11:30 AM - 10:00 PM<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun: 11:30 AM - 6:00 PM
+                            </small>
+                        </p>
+                        <p class="card-text"><small class="text-muted">Address: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roots Building</small></p>
+                        <a href="/facilities?facility=The%20Beautiful%20Duck%20Restaurant" class="btn btn-primary">View
+                            Menu</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Dining Facility 2: StarBucks Cafe -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static\images\StarBucks_Cafe.webp" class="card-img-top" alt="StarBucks Cafe">
+                    <div class="card-body">
+                        <h5 class="card-title">StarBucks Cafe</h5>
+                        <p class="card-text">Starbucks Cafe offers an exquisite variety of coffees. A cup of coffee
+                            keeps fatigue away from you.</p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Open hours:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mon-Sat: 10:00 AM - 5:00 PM<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun: Closed
+                            </small>
+                        </p>
+                        <p class="card-text"><small class="text-muted">Address: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Library</small></p>
+                        <a href="/facilities?facility=StarBucks%20Cafe" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Dining Facility 3: Terrace Bar -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static\images\Terrace_bar.webp" class="card-img-top" alt="Terrace Bar">
+                    <div class="card-body">
+                        <h5 class="card-title">Terrace Bar</h5>
+                        <p class="card-text">Happy hour has begun. You can find the drink you want. Want a drink?</p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Open hours:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mon-Sat: 11:00 AM - 4:00 AM<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun: 4:00 PM - 4:00 AM
+                            </small>
+                        </p>
+                        <p class="card-text"><small class="text-muted">Address: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Underground Plaza</small></p>
+                        <a href="/facilities?facility=Terrace%20Bar" class="btn btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About us section, list our values and our mission. -->
+    <section class="about-us my-5">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Warwick Dining Hub offers a diverse range of dining facilities across the University of Warwick campus.
+                From cozy cafes to elegant restaurants and lively bars, our hubs cater to every taste and occasion. Our
+                mission is to provide delicious, high-quality food and drink options in a welcoming environment, making
+                campus life more enjoyable for students, staff, and visitors. Join us to explore the culinary delights
+                our dining facilities have to offer.</p>
+            <div class="row">
+                <!-- service and food -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Provide Good Food and Drinks</h5>
+                            <p class="card-text">We aim to provide delicious food and drinks to students and faculty so
+                                that they can enjoy their campus life to the fullest. All products are made from
+                                specially selected raw materials and are very healthy.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- employee training and employee treatment -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Staff Training</h5>
+                            <p class="card-text">All our staff are paid the living wage and trained to the highest
+                                standards, with ongoing health, safety and hygiene training. We want to give you a great
+                                dining experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sustainable development -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sustainable Development</h5>
+                            <p class="card-text">We use as much recyclable tableware as possible to minimize the
+                                production of pollutants. It is everyone's responsibility to protect the environment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo column -->
+                <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+                    <img src="static/images/Logo.jpg" alt="Logo" width="150" height="90">
+                </div>
+                <!-- text column -->
+                <div class="col-md-8 text-center text-md-right">
+                    <p>Contact us: Dining.Hub@warwick.ac.uk</p>
+                    <p>Phone: +44 01234567890</p>
+                </div>
+            </div>
+        </div>
+        <!-- copyright -->
+        <div class="footer-bottom text-center mt-3">
+            © This website is developed by Chesson Zhai. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
