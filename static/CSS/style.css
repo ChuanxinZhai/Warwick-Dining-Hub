@@ -1,0 +1,211 @@
+/* This css file contains all the customised styles (except Bootstrap) for this project. */
+
+/* Nav bg color */
+.navbar {
+    background-color: #ffff83 !important;
+}
+
+/* make nav fixed at top */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+body {
+    padding-top: 56px;
+    /* add gradient background for beautiful effect */
+    background: linear-gradient(to right, #eb7bfa, #89e7ff);
+}
+
+.nav-link.active {
+    background-color: #ffbb01 !important;
+    color: white !important;
+}
+
+/* add border */
+.nav-link.active {
+    border: 2px solid #ffbb01 !important;
+    border-radius: 10px;
+}
+
+/* add box-shadow */
+.nav-link.active {
+    box-shadow: 0 0 5px #ffbb01 !important;
+}
+
+
+
+/* carousel */
+.custom-carousel {
+    margin: 0 auto;
+    display: block;
+    max-width: 80%;
+
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.carousel-text-color {
+    color: #ffecf7 !important;
+    /* carousel text color */
+}
+
+.carousel-img-opacity {
+    opacity: 0.85;
+    /* Adjust transparency to make rotating image text visible */
+}
+
+.carousel-caption {
+    text-shadow: 2px 2px 4px #000000;
+    /* add text shadow for better readability */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* add background color for better readability */
+    border-radius: 5px;
+    /* add radius to make it look more like a box */
+    padding: 3px;
+}
+
+
+/* adjust the carousel width according to different devices*/
+@media (min-width: 576px) {
+    #carousel {
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    #carousel {
+        max-width: 85%;
+    }
+}
+
+@media (min-width: 992px) {
+    #carousel {
+        max-width: 80%;
+
+    }
+}
+
+@media (min-width: 1200px) {
+    #carousel {
+        max-width: 80%;
+    }
+}
+
+/* dropdown menu */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* about us section*/
+.about-us {
+    border: 2px solid #fda451;
+    padding: 20px;
+    margin: 40px;
+}
+
+/* use fancy characters */
+.card-title {
+    font-family: 'Lobster', cursive;
+}
+
+
+.footer .container {
+    background-color: #7df0a3;
+    margin-bottom: 0;
+}
+
+/* footer section*/
+.footer {
+    padding: 5px 0;
+    background-color: #1e1e1f !important;
+    color: #ff312a;
+    margin-top: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.footer-bottom {
+    padding: 1px 0;
+    background-color: #1e1e1f;
+    color: #565b5f;
+    margin-top: 1px !important;
+    margin-bottom: 0px !important;
+}
+
+
+/* adjust container */
+.container.mt-5 {
+    margin-left: 220px;
+}
+
+/* sidebar section*/
+*/ .sidebar {
+    position: fixed;
+    top: 150px;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    padding: 20px;
+}
+
+/* return to home page BUTTON*/
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.back-to-home a:hover {
+    text-decoration: underline;
+}
+
+
+/* facility map section*/
+.facility-map {
+    display: block;
+    margin: auto;
+    /* make picture centered */
+    max-width: 100%;
+    width: 95%;
+    /* adjust width to fit the container */
+    height: auto;
+}
+
+
+/* user profile section*/
+*/ .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-info h3 {
+    color: #007bff;
+    margin-top: 20px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
