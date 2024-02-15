@@ -1,7 +1,7 @@
 # Warwick-Dining-Hub
 Dashboard Demo page as below: https://chuanxinzhai.github.io/Warwick-Dining-Hub/
 
-Other pages you need to see my raw project because I didn't write the page jump logic code in html. I wrote the routes in app.py file.
+If you want to see my other pages, you need to see my raw project because I didn't write the page jump logic code in html. I wrote the routes in app.py file.
 ![p](https://github.com/ChuanxinZhai/Warwick-Dining-Hub/assets/94314784/e0f729af-e12a-469b-b247-1030aeed4c66)
 
 
