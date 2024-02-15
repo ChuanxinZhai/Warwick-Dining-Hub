@@ -10,9 +10,13 @@ Download the folder: Warwick-Dining-Hub and unzip.
 
 Install virtual python environment and Flask framework to your IDE.
 
-Run app.py (if you don't want use my existing database, you need to run **add_inventory.py**, **booking.py**, **feedback.py** first, to initialize the database)
+Run **app.py** (if you don't want use my existing database, you need to run **add_inventory.py**, **booking.py**, **feedback.py** first, to initialize the database)
 
 Open the local link: http://127.0.0.1:5000/
+
+### Database ERD
+![image](https://github.com/ChuanxinZhai/Warwick-Dining-Hub/assets/94314784/670a2f1d-61f4-4e01-8025-cbf99bd85e4c)
+
 
 ### Pytest
 Open your command line terminal (cmd) as administrator.
