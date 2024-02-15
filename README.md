@@ -1,5 +1,5 @@
 # Warwick-Dining-Hub
-Warwick-Dining-Hub is an interactive hub for the University of Warwick’s dining facilities. There are three main facilities in this website, the Beautiful Duck Restaurant, StarBucks Coffee and Terrace Bar.
+Warwick-Dining-Hub is an interactive hub for the University of Warwick’s dining facilities, providing view/add products, book a slot, submit feedback and search functions to students, staff and restaurant merchants. There are three main facilities in this website, the Beautiful Duck, StarBucks Cafe and Terrace Bar, which provide food, coffee and wine, respectively.
 
 Dashboard Demo page as below: https://chuanxinzhai.github.io/Warwick-Dining-Hub/
 
