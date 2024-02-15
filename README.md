@@ -1,4 +1,6 @@
 # Warwick-Dining-Hub
+Warwick-Dining-Hub is an interactive hub for the University of Warwick’s dining facilities. There are three main facilities in this website, the Beautiful Duck Restaurant, StarBucks Coffee and Terrace Bar.
+
 Dashboard Demo page as below: https://chuanxinzhai.github.io/Warwick-Dining-Hub/
 
 If you want to see my other pages, you need to see my raw project because I didn't write the page jump logic code in html. I wrote the routes in app.py file.
