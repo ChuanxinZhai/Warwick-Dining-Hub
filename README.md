@@ -1,5 +1,5 @@
 # Warwick-Dining-Hub
-Demo page: https://chuanxinzhai.github.io/Warwick-Dining-Hub/
+Dashboard Demo page: https://chuanxinzhai.github.io/Warwick-Dining-Hub/
 ![p](https://github.com/ChuanxinZhai/Warwick-Dining-Hub/assets/94314784/e0f729af-e12a-469b-b247-1030aeed4c66)
 
 
