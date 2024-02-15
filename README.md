@@ -8,6 +8,9 @@ If you want to see my other pages, you need to see my raw project because I didn
 ### Deploy guide
 Download the folder: Warwick-Dining-Hub and unzip.
 
+IDE: ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
+
+
 Install virtual python environment and Flask framework to your IDE.
 
 Run **app.py** (if you don't want use my existing database, you need to run **add_inventory.py**, **booking.py**, **feedback.py** first, to initialize the database)
@@ -15,6 +18,10 @@ Run **app.py** (if you don't want use my existing database, you need to run **ad
 Open the local link: http://127.0.0.1:5000/
 
 ### Database ERD
+
+![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+
+
 ![image](https://github.com/ChuanxinZhai/Warwick-Dining-Hub/assets/94314784/670a2f1d-61f4-4e01-8025-cbf99bd85e4c)
 
 
